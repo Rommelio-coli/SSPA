@@ -43,7 +43,7 @@ psreg <- function(obj,  resolution = 1000)
 	        xhi = as.double(max(x)), 
 	        y = double(resolution),
 	  		  ny = as.integer(resolution), 
-	        PACKAGE = "stats")$y/w
+	        PACKAGE = "SSPA")$y/w
 	
 	if(obj@nullDist=="normal")
 	{

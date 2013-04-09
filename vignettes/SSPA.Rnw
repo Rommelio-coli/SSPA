@@ -216,7 +216,7 @@ statistics <- tbl$LR
 @ 
 
 
-<<deepsage-effectsize, fig=TRUE, eval=FALSE>>=
+<<deepsage-effectsize, fig=TRUE, eval=TRUE>>=
 library(lattice)
 data(deepSAGE)
 str(deepSAGE)

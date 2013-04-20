@@ -215,8 +215,7 @@ tbl <- topTags(lrt.hoen, n=nrow(d))[[1]]
 statistics <- tbl$LR
 @ 
 
-
-<<deepsage-effectsize, fig=TRUE, eval=TRUE>>=
+<<deepsage-effectsize, eval=TRUE>>=
 library(lattice)
 data(deepSAGE)
 str(deepSAGE)

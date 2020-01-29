@@ -21,7 +21,7 @@ nncg <- function(A, b, type=1, trace=FALSE)
     if(ncol(A) != nrow(A) | nrow(A) != length(b))
       stop("Dimensions do not match!")
 
-    output <- .C("nncg",
+    output <- .C("nncgc",
                  n = as.integer(ncol(A)),
                  x0 = as.vector(b*0, mode="double"),
                  A = as.vector(A, mode="double"),

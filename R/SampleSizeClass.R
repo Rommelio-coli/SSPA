@@ -23,22 +23,47 @@ setGeneric("Theta", function(object) { standardGeneric ("Theta")})
 setGeneric("Control", function(object) { standardGeneric ("Control")})
 setGeneric("Info", function(object) { standardGeneric ("Info")})
 
+##' @rdname Pi0-methods
+##' @aliases Pi0
 setMethod("Pi0","SampleSize", function(object){ return(object@pi0)})
+
+##' @rdname Lambda-methods
+##' @aliases Lambda
 setMethod("Lambda","SampleSize", function(object){ return(object@lambda)})
+
+##' @rdname Theta-methods
+##' @aliases Theta
 setMethod("Theta","SampleSize", function(object){ return(object@theta)})
+
+##' @rdname Control-methods
+##' @aliases Control
 setMethod("Control","SampleSize", function(object){return(object@control)})
+
+##' @rdname Info-methods
+##' @aliases Info
 setMethod("Info","SampleSize", function(object){ return(object@info)})
 
 #######################################################################################
 ##Show method for SampleSize
 ##
 #######################################################################################
+
+##' @rdname show-methods
+##' @aliases show
 setMethod("show", signature("SampleSize"), function (object) { cat(str(object)) })
 
 #######################################################################################
 ##Overload Generic plot method for class "SampleSize"
 ##plot density of effect sizes
 #######################################################################################
+
+##' @title plot-method
+##' @param x SampleSize-object
+##' @param y not used
+##' @param threshold effect-size threshold
+##' @param ... additiol plotting options
+##'
+##' @export
 setMethod("plot", signature(x="SampleSize"), definition = function(x, y, threshold = 0, ...)
           {
             object <- x
@@ -119,7 +144,7 @@ deconvControl <- function(control)
     stop("must specify a single fraction of non-differently expressed genes!")
   else if(conpar$pi0Method == "Ferreira" && length(conpar$pi0) == 1)
     stop("must specify a grid of values!")
-  else if(conpar$pi0 < 0 || conpar$pi0 > 1)
+  else if(all(conpar$pi0 < 0) || all(conpar$pi0 > 1))
     stop("All pi0-values must be between 0 and 1")
 
   conpar
@@ -225,6 +250,14 @@ tikhonovControl <- function(control)
   conpar
 }
 
+#' defineEffectSizeRange
+#'
+#' @param object pilotdata object
+#' @param from lower limit effect-sizes
+#' @param to upper limit effect-sizes
+#' @param resolution should be power of 2 default length statistics round to nearest power of 2 
+#'
+#' @return effect-size range
 defineEffectSizeRange <- function(object, from, to, resolution)
   {
     ##'TODO use trimmingbinning function for this!
@@ -313,8 +346,11 @@ defineEffectSizeRange <- function(object, from, to, resolution)
 ##' @author Maarten van Iterson
 ##' @references
 ##' Langaas, Storey, Ferreira, Hansen, van Iterson
-##' @seealso \code{\link{optim, fft}}
+##' @seealso  \code{\link[stats]{optim}}
 ##' @export
+##' @importFrom graphics abline curve grid hist par points
+##' @importFrom utils str
+##' @importFrom methods new
 ##' @examples
 ##' m <- 5000 ##number of genes
 ##' J <- 10 ##sample size per group

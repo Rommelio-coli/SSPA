@@ -20,15 +20,30 @@ setGeneric("Samplesize", function(object) { standardGeneric ("Samplesize") })
 setGeneric("Pvalues", function(object) { standardGeneric ("Pvalues") })
 setGeneric("distribution", function(object) { standardGeneric ("distribution") })
 
+
+##' @rdname Statistics-methods
+##' @aliases Statistics
 setMethod("Statistics","PilotData", function(object){ return(object@statistics) })
+
+##' @rdname Pvalues-methods
+##' @aliases Pvalues
 setMethod("Pvalues","PilotData", function(object){ return(object@pvalues)})
+
+##' @rdname Samplesize-methods
+##' @aliases Samplesize
 setMethod("Samplesize","PilotData", function(object){ return(object@samplesize)})
+
+##' @rdname distribution-methods
+##' @aliases distribution
 setMethod("distribution","PilotData", function(object){ return(object@distribution)})
 
 #######################################################################################
 ##Show method for class "PilotData"
 ##
 #######################################################################################
+
+##' @rdname show-methods
+##' @aliases show
 setMethod("show", signature("PilotData"), function(object) cat(str(object)))
 
 #######################################################################################
@@ -36,6 +51,9 @@ setMethod("show", signature("PilotData"), function(object) cat(str(object)))
 ##create some diagnostic plots
 ##
 #######################################################################################
+
+##' @rdname plot-methods
+##' @aliases plot
 setMethod("plot", signature(x="PilotData"), definition = function(x, y, ...)
           {
             object <- x
@@ -92,6 +110,8 @@ setMethod("plot", signature(x="PilotData"), definition = function(x, y, ...)
 ##' @return object of class "PilotData"
 ##' @author Maarten van Iterson
 ##' @export
+##' @importFrom lattice trellis.par.get panel.histogram panel.xyplot panel.abline
+##' @importFrom lattice prepanel.qqmathline panel.qqmath xyplot panel.qqmathline qqmath histogram
 ##' @examples
 ##' pd <- pilotData(statistics=rnorm(100), samplesize=10, distribution="norm")
 ##' pd

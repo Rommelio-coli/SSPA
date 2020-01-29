@@ -8,6 +8,9 @@
 ##' @param object of class SampleSize
 ##' @return object of class SampleSize
 ##' @author Maarten van Iterson
+##' @importFrom qvalue qvalue
+##' @importFrom limma convest
+##' @useDynLib SSPA, .registration = TRUE
 deconvolution <- function(object)
 {
 
@@ -57,7 +60,7 @@ deconvolution <- function(object)
   Nx <- length(statistics)
 
   ##empirical density estimation from library stat
-  y <- .C("massdist",
+  y <- .C("massdistc",
           x = as.double(statistics),
           xmass = as.double(rep(1/Nx, Nx)),
           nx = as.integer(Nx),

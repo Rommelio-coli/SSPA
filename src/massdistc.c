@@ -32,7 +32,7 @@
 #include <R_ext/Arith.h>
 #include <R_ext/Applic.h>
 
-void massdist(double *x,
+void massdistc(double *x,
 	      double *xmass, /* AB: new variable */
 	      int *nx,
 	      double *xlow, double *xhigh,

@@ -79,6 +79,9 @@ pbitri <- function(q, a=log2(1.2), b=log2(4), m=log2(2))
 ##' @examples
 ##' curve(qbitri, 0, 1)
 ##' @export
+##' @importFrom stats runif approx dbinom dchisq df dnorm dt
+##' @importFrom stats ecdf fft pchisq pf pnorm pt qchisq
+##' @importFrom stats qf qnorm qt quantile rnorm
 qbitri <- function(p, a=log2(1.2), b=log2(4), m=log2(2))
 {
   y <- numeric(length(p))

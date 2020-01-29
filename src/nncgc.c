@@ -119,7 +119,7 @@ void grad(int n, int m, double *x, double *A, double *b, double *g)
 //R's Conjugate Gradients algorithm
 //Date: 26-09-2012
 //Modified by M. van Iterson
-void nncg(int *Rn, double *x0, double *A, double *b, double *fmin, int *fail, int *Rtype, int *Rtrace, int *objfcount, int *gradcount)
+void nncgc(int *Rn, double *x0, double *A, double *b, double *fmin, int *fail, int *Rtype, int *Rtrace, int *objfcount, int *gradcount)
 {
   int accpoint, count, cycle, cyclimit, n = *Rn, m = *Rn;
   int fcount=0, gcount=0, i;

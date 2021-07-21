@@ -17,7 +17,7 @@ URL: http://www.humgen.nl/MicroarrayAnalysisGroup.html
 Collate: 'zzz.R' 'numericalintegration.R' 'trimmingbinning.R'
         'DistributionClass.R' 'PilotDataClass.R' 'SampleSizeClass.R'
         'bitriangular.R' 'deconvolution.R' 'conjugategradient.R'
-        'Ferreira.R' 'tikhonov.R' 'powerandsamplesize.R' 'zzz.R'
+        'Ferreira.R' 'tikhonov.R' 'powerandsamplesize.R'
 biocViews: ImmunoOncology, GeneExpression, RNASeq, Microarray, StatisticalMethod
 RoxygenNote: 7.0.2
 PackageStatus: Deprecated
